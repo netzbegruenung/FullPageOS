@@ -3,9 +3,15 @@
 [ -n "$FULLPAGEOS_OVERRIDE_TIMEZONE" ] || FULLPAGEOS_OVERRIDE_TIMEZONE=default
 
 #override locale, otherwise use image locale
-# Run locale -a to get a list of the locale names suitable for use in environment variables. Note that the spellings are different from the ones presented in the dpkg-reconfigure list.
+# Run locale -a to get a list of the locale names suitable for use in environment
+# variables. Note that the spellings are different from the ones presented in the
+# dpkg-reconfigure list.
 # More information at https://wiki.debian.org/Locale#Standard
-[ -n "$FULLPAGEOS_OVERRIDE_LOCALE" ] || FULLPAGEOS_OVERRIDE_LOCALE=default
+# - FULLPAGEOS_OVERRIDE_LOCALE: locale identifier like 'en_GB.UTF-8'
+# - FULLPAGEOS_OVERRIDE_LOCALE_GEN: locale identifier plus encoding, like required
+#   by the locale-gen tool. Example: 'en_GB.UTF-8 UTF-8'
+[ -n "$FULLPAGEOS_OVERRIDE_LOCALE" ] || FULLPAGEOS_OVERRIDE_LOCALE_GEN=default
+[ -n "$FULLPAGEOS_OVERRIDE_LOCALE_GEN" ] || FULLPAGEOS_OVERRIDE_LOCALE_GEN="en_GB.UTF-8 UTF-8"
 
 #override password, otherwise use image default
 [ -n "$FULLPAGEOS_OVERRIDE_PASSWORD" ] || FULLPAGEOS_OVERRIDE_PASSWORD=default

@@ -19,7 +19,7 @@ apt-get remove -y --purge scratch squeak-plugins-scratch squeak-vm wolfram-engin
 apt-get autoremove -y
 
 #apt-get tools
-apt-get -y --force-yes install python2.7 git screen checkinstall avahi-daemon libavahi-compat-libdnssd1 xterm locales-all
+apt-get -y --force-yes install python2.7 git screen checkinstall avahi-daemon libavahi-compat-libdnssd1 xterm
 
 if [ "$FULLPAGEOS_INCLUDE_CHROMIUM" == "yes" ]
 then
@@ -77,7 +77,7 @@ fi
 #override locale
 if [ "$FULLPAGEOS_OVERRIDE_LOCALE" != "default" ]
 then
-    sed -i '/^#.* '"$FULLPAGEOS_OVERRIDE_LOCALE"' /s/^# //' /etc/locale.gen
+    echo "$FULLPAGEOS_OVERRIDE_LOCALE_GEN" > /etc/locale.gen
     locale-gen
     update-locale LANG="$FULLPAGEOS_OVERRIDE_LOCALE"
 fi
