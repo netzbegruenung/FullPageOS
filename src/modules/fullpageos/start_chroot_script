@@ -81,6 +81,10 @@ then
     echo "$FULLPAGEOS_OVERRIDE_LOCALE_GEN" > /etc/locale.gen
     locale-gen
     update-locale LANG="$FULLPAGEOS_OVERRIDE_LOCALE"
+
+    # append locale settings in profile
+    echo "" >> /home/pi/profile
+    echo "export LANG=$FULLPAGEOS_OVERRIDE_LOCALE" >> /home/pi/profile
 fi
 
 #override password
