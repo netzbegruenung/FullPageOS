@@ -78,8 +78,8 @@ fi
 if [ "$FULLPAGEOS_OVERRIDE_LOCALE" != "default" ]
 then
     apt-get install -y locales-all
-    #echo "$FULLPAGEOS_OVERRIDE_LOCALE_GEN" > /etc/locale.gen
-    #locale-gen
+    echo "$FULLPAGEOS_OVERRIDE_LOCALE_GEN" >> /etc/locale.gen
+    locale-gen
     update-locale LANG="$FULLPAGEOS_OVERRIDE_LOCALE"
 
     # append locale settings in profile
