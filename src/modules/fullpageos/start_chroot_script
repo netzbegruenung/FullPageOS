@@ -55,12 +55,12 @@ then
         fi
         #Set Welcome screen
         if [ "$FULLPAGEOS_INCLUDE_WELCOME" == "yes" ]
-        then        
+        then
             gitclone FULLPAGEOS_WELCOME_REPO welcome
             chown -R www-data:www-data welcome
         fi
     popd
-    
+
     echo "enabled" > /boot/check_for_httpd
 else
     echo "disabled" > /boot/check_for_httpd
