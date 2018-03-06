@@ -80,12 +80,9 @@ then
     apt-get install -y locales-all
     # uncomment the locale we want to generate
     sed -i "/$FULLPAGEOS_OVERRIDE_LOCALE_GEN/s/^#//" /etc/locale.gen
+    # generate locale(s)
     locale-gen
-    update-locale LANG="$FULLPAGEOS_OVERRIDE_LOCALE"
-
-    # append locale settings in profile
-    echo "" >> /home/pi/.profile
-    echo "export LANG=$FULLPAGEOS_OVERRIDE_LOCALE" >> /home/pi/.profile
+    update-locale $FULLPAGEOS_OVERRIDE_LOCALE
 fi
 
 #override password
